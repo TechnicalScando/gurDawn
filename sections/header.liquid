@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="header">
+        <div class="dropdown">
+            <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                {% for link in linklists.main-menu.links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <img loading="lazy" src="{{ section.settings.logo | image_url: width: 405, height: 172 }}">
+        <a href="{{ routes.cart_url }}">cart</a>
+    </div>
+
+</div>
+
+{% schema %}
+{
+  "name": "Header",
+  "class": "header-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Header Logo"
+    }
+  ]
+}
+{% endschema %}

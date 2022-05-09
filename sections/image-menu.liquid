@@ -1,0 +1,46 @@
+<div class="image-menu-container">
+    {% for block in section.blocks %}
+        <div class="image_item">
+            {% if block.settings.image != blank %}
+                <img src="{{ block.settings.image | image_url: width: 200 }}" alt="">
+            {% else %}
+                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+            {% endif %}
+            <button>
+                <a href="{{ linklists.main-menu.links[0] }}">
+                    <p class="menu-item-title">{{ linklists.main-menu.links[0].title }}</p>
+                </a>
+            </button>
+
+        </div>
+
+    {% endfor %}
+
+</div>
+
+
+{% schema %}
+    {
+  "name": "Image Menu",
+  "class": "image-menu-section",
+  "presets": [
+    {
+      "category": "Menu",
+      "name": "Image Menu"
+    }
+  ],
+  "blocks": [
+    {
+      "name": "Image Menu Item",
+      "type": "image_picker",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Block Image"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
