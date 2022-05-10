@@ -1,0 +1,47 @@
+<div class="container">
+    <div class="showcase-row">
+      {% for block in section.blocks %}
+            <div class="showcase-info-container">
+                <h1 class="showcase-info-title">Pecan</h1>
+                <p class="showcase-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt ante
+                                                            sit amet urna venenatis
+                                                            accumsan.
+                                                            Nulla nec dui justo. Phasellus at volutpat nibh. Pellentesque mattis tortor in ante sodales.
+                </p>
+
+                {% if block.settings.image != blank %}
+                    <img class="flex-image" src="{{ block.settings.image | image_url: height: 500, width: 500}}" alt="">
+                    {% else %}
+                        {{ 'product-6' | placeholder_svg_tag: 'flex-image' }}
+                {% endif %}
+                
+            </div>
+         {% endfor %}
+    </div>
+</div>
+
+{% schema %}
+{
+  "name": "Show Case",
+  "class": "showcase-section",
+  "presets": [
+    {
+      "category": "Info Section",
+      "name": "Show Case"
+    }
+  ],
+   "blocks": [
+    {
+       "name": "Small Hero",
+       "type": "small_hero",
+       "settings": [
+        {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+        }
+       ]
+    }
+   ]
+}
+{% endschema %}

@@ -1,26 +1,24 @@
 <div class="image-menu-container">
     {% for block in section.blocks %}
         <div class="image_item">
-            {% if block.settings.image != blank %}
-                <img src="{{ block.settings.image | image_url: width: 200 }}" alt="">
-            {% else %}
-                {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
-            {% endif %}
+                {% if block.settings.image != blank %}
+                    <img class="flex-image" src="{{ block.settings.image | image_url: width: 450, height: 450, crop: center }}" alt="">
+                {% else %}
+                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                {% endif %}
+            <h1 class="menu-button-title">Try now!</h1>
             <button>
                 <a href="{{ linklists.main-menu.links[0] }}">
                     <p class="menu-item-title">{{ linklists.main-menu.links[0].title }}</p>
                 </a>
             </button>
-
         </div>
-
     {% endfor %}
-
 </div>
 
 
 {% schema %}
-    {
+{
   "name": "Image Menu",
   "class": "image-menu-section",
   "presets": [

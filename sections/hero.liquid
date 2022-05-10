@@ -1,26 +1,29 @@
-<section class="hero-section">
-    <h1 class="hero-title">hero-title</h1>
-    <p class="hero-text">
-        Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit. Etiam mattis lacus ac
-        hendrerit malesuada. Maecenas tincidunt
-        viverra neque, in volutpat diam iaculis quis.
-        Suspendisse imperdiet mi in interdum varius.
-        Suspendisse purus est,
-        condimentum et orci quis,
-        fringilla sollicitudin nisi. Cras.
-    </p>
-    <button class="try-button">Try now!</button>
+<div class="hero-section">
+    <div class="hero-info">
+        <h1 class="hero-title">hero-title</h1>
+        <p class="hero-text">
+            Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit. Etiam mattis lacus ac
+                    hendrerit malesuada. Maecenas tincidunt
+                    viverra neque, in volutpat diam iaculis quis.
+                    Suspendisse imperdiet mi in interdum varius.
+                    Suspendisse purus est,
+                    condimentum et orci quis,
+                    fringilla sollicitudin nisi. Cras.
+        </p>
+        <button class="try-button">Try now!</button>
+    </div>
+
     {% if section.settings.hero_image != blank %}
-        <img loading="'lazy" src="{{ section.settings.hero_image | image_url: height: 300 }}" alt="">
+        <img class="flex-image" loading="'lazy" src="{{ section.settings.hero_image | image_url: width: 1500, crop: top }}" alt="">
     {% else %}
         {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
     {% endif %}
 
-</section>
+</div>
 
 {% schema %}
-    {
+{
   "name": "Hero",
   "class": "hero-section",
   "settings": [
