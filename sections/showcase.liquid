@@ -2,7 +2,19 @@
     <div class="showcase-row">
       {% for block in section.blocks %}
             <div class="showcase-info-container">
-                <h1 class="showcase-info-title">Pecan</h1>
+
+
+              {% if block.settings.title != blank %}
+                <h1 class="showcase-info-title">{{ block.settings.title }}</h1>
+
+                {% else %}
+                  <h1>Content Title</h1>
+              {% endif %}
+                
+
+
+
+
               {% if block.settings.image_description != blank %}
                   <p class="showcase-info">{{ block.settings.image_description }}</p>
                 {% else %}
@@ -52,6 +64,11 @@
           "type": "text",
           "id": "image_description",
           "label": "Image description"
+        },
+        {
+         "type": "text",
+         "id": "title",
+         "label": "Title"
         }
        ]
     }
