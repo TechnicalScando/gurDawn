@@ -1,152 +1,120 @@
-.header {
-    width: 100%;
+.hero-section {
     display: flex;
-    justify-content: space-between;
-}
+    overflow: hidden;
+    flex-direction: column;
 
-.dropbtn {
-    padding: 16px;
-}
-
-.dropdown {
     position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
+
+    padding: 5px;
+
+    min-width: 300px;
 }
 
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
+.hero-info {
+    position: absolute;
+    padding: 10px;
+
+    max-width: 500px;
+
+    align-self: center;
+
+    font-family: "Cabin", sans-serif;
+
+    margin-top: 150px;
+
+    
 }
 
-.dropdown-content a:hover {
-    background-color: #ddd;
+.hero-image {
+    width: 100%;
+    min-width: 1200px;
+    max-width: 1200px;
+    max-height: 524px;
+
 }
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+.hero-button {
+    width: 35%;
+    height: 45px;
 
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
+    box-shadow: 0px 0px 0px 1px rgba(165, 154, 154, 0.38);
+    border-radius: 8px;
 }
 
 .image_item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-   
-    width: 25%;
-    margin: 5px;
+  width: 35%;
+  border-radius: 50%;
 
+  box-sizing: border-box;
 
-   
+  max-width: 170px;
+
+  padding: 5px;
+
+  
+
+}
+
+.flex-image{
+    width: 100%;
 }
 
 .image-menu-container {
     display: flex;
-    padding: 5px;
+    flex-wrap: wrap;
 
-    margin-top: 30px;
-}
+    justify-content: center;
+    justify-content: space-around;
 
-.menu-item-title{
+    font-family: "Cabin", sans-serif;
     text-align: center;
 }
 
-.flex-image{
-    max-width: 100%;
+.image-menu-title {
+    font-size: 15px;
+    margin: 0px;
 }
 
-.showcase-container{
-    margin-top: 20px;
+.image-menu-description{
+    font-size: 10px;
+    margin: 0;
 }
 
-.showcase-row{
-    display: flex;
-    flex-direction: row;
+.menu-image{
+    border-radius: 50%;
+    width: 100%;
 
-    justify-content: center;
+    height: 170px;
+    width: 120px;
 
-    padding: 5px;
-}
-
-.showcase-info-container{
     margin: 5px;
-
-    text-align: center;
-
-    width: 33%;
-
-    min-height: 100%;
 }
 
-.showcase-info-container{
-    margin: 10px;
+.showcase-image{
+    border-radius: 50%;
+    height: 325px;
 }
 
-.showcase-info{
-    min-height: 20%;
-}
-
-.hero-info {
-    width: 40%;
-    position: absolute;
-
-    color: white;
-
-    align-self: center;
-
-    margin-left: 15%;
-}
-
-.hero-section {
-    display: flex;
-    z-index: 1;
-    justify-content: center;
-
-    margin-top: 10px;
-}
-
-.two-way-section{
-    display: flex;
-    justify-content: center;
-
-    margin-top: 20px;
-
-    padding: 5px;
-}
-
-.two-way-image{
-    width: 40%;
-    margin: 5px;
-
-    padding: 30px;
-}
-
-.two-way-text{
-    padding: 10px;
-}
-
-.two-way-right{
-    width: 40%;
-    margin: 5px;
+.showcase-info-container {
+    max-width: 342px;
 
     display: flex;
-
+    justify-content: space-between;
     flex-direction: column;
 
-    justify-content: space-between;
+    padding: 5px;
+
+    font-family: "Cabin", sans-serif;
 }
+
+.showcase-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    justify-content: center;
+    justify-content: space-around;
+}
+
 

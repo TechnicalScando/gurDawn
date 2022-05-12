@@ -1,24 +1,31 @@
 <div class="hero-section">
+
+
     <div class="hero-info">
-        <h1 class="hero-title">hero-title</h1>
+        <h3 class="hero-title">A bold and brilliant spruce</h3>
         <p class="hero-text">
             Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. Etiam mattis lacus ac
-                    hendrerit malesuada. Maecenas tincidunt
-                    viverra neque, in volutpat diam iaculis quis.
-                    Suspendisse imperdiet mi in interdum varius.
-                    Suspendisse purus est,
-                    condimentum et orci quis,
-                    fringilla sollicitudin nisi. Cras.
+                                                        adipiscing elit. Etiam mattis lacus ac
+                                                        hendrerit malesuada. Maecenas tincidunt
+                                                        viverra neque, in volutpat diam iaculis quis.
+                                                        Suspendisse imperdiet mi in interdum varius.
+                                                        Suspendisse purus est,
+                                                        condimentum et orci quis,
+                                                        fringilla sollicitudin nisi. Cras.
         </p>
-        <button class="try-button">Try now!</button>
+        <button class="hero-button">Try now!</button>
     </div>
 
-    {% if section.settings.hero_image != blank %}
-        <img class="flex-image" loading="'lazy" src="{{ section.settings.hero_image | image_url: width: 1500, crop: top }}" alt="">
-    {% else %}
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-    {% endif %}
+
+    
+        {% if section.settings.hero_image != blank %}
+            <img class="hero-image" loading="'lazy" src="{{ section.settings.hero_image | image_url: width: 1500, crop: top }}" alt="">
+        {% else %}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'hero-image' }}
+        {% endif %}
+
+    
+
 
 </div>
 

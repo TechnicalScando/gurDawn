@@ -1,17 +1,27 @@
 <div class="image-menu-container">
     {% for block in section.blocks %}
+      
         <div class="image_item">
+          {% if block.settings.title != blank %}
+            <h4 class="image-menu-title">{{ block.settings.title }}</h4>
+            {% else %}
+             <h4 class="image-menu-title">Spruce</h4> 
+          {% endif %}
+
+          {% if block.settings.description != blank%}
+            <p class="image-menu-description">{{ block.settings.description }}</p>
+            {% else %}
+             <p class="image-menu-description">A very small description</p> 
+          {% endif %}
+          
+          
+            <a href="{{ linklists.main-menu.links[0] }}">
                 {% if block.settings.image != blank %}
-                    <img class="flex-image" src="{{ block.settings.image | image_url: width: 450, height: 450, crop: center }}" alt="">
+                    <img class="menu-image" src="{{ block.settings.image | image_url: width: 450, height: 450, crop: center }}" alt="">
                 {% else %}
-                    {{ 'product-1' | placeholder_svg_tag: 'placeholder-svg' }}
+                    {{ 'product-1' | placeholder_svg_tag: 'menu-image' }}
                 {% endif %}
-            <!-- <h1 class="menu-button-title">Try now!</h1> -->
-            <button>
-                <a href="{{ linklists.main-menu.links[0] }}">
-                    <p class="menu-item-title">{{ linklists.main-menu.links[0].title }}</p>
-                </a>
-            </button>
+            </a>
         </div>
     {% endfor %}
 </div>
@@ -36,7 +46,18 @@
           "type": "image_picker",
           "id": "image",
           "label": "Block Image"
+        },
+        {
+         "type": "text",
+         "id": "title",
+         "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "description",
+          "label": "Description"
         }
+       
       ]
     }
   ]
