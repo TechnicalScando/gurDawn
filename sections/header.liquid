@@ -1,14 +1,14 @@
 <div class="container">
     <div class="header">
         <div class="dropdown">
-            <button class="dropbtn">Dropdown</button>
+            <button class="dropbtn">X</button>
             <div class="dropdown-content">
                 {% for link in linklists.main-menu.links %}
                 <a href="{{ link.url }}">{{ link.title }}</a>
                 {% endfor %}
             </div>
         </div>
-        <img loading="lazy" class="header-logo" src="{{ section.settings.logo | image_url: width: 405, height: 172 }}">
+        <img loading="lazy" class="header-logo" src="{{ section.settings.logo | image_url: width: 250 }}">
         <a href="{{ routes.cart_url }}">cart</a>
     </div>
 
