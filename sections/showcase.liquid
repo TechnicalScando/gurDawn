@@ -1,38 +1,38 @@
-<div class="showcase-container">
-    <div class="showcase-row">
-      {% for block in section.blocks %}
-            <div class="showcase-info-container">
-              {% if block.settings.title != blank %}
-                <h1 class="showcase-info-title">{{ block.settings.title }}</h1>
+{% for block in section.blocks %}
+    <div class="showcase-container">
+        <div class="showcase">
+
+            <div class="showcase-paragraph">
+                {% if block.settings.title != blank %}
+                    <h1 class="showcase-paragraph-title">{{ block.settings.title }}</h1>
                 {% else %}
-                  <h1 class="showcase-info-title">Content Title</h1>
-              {% endif %}
-                
-              {% if block.settings.image_description != blank %}
-                  <p class="showcase-info">{{ block.settings.image_description }}</p>
-                {% else %}
-                  <p class="showcase-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt ante
-                    sit amet urna venenatis
-                    accumsan.
-                    Nulla nec dui justo. Phasellus at volutpat nibh. Pellentesque mattis tortor in ante sodales.
-                  </p>
-              {% endif %}
-       
-                {% if block.settings.image != blank %}
-                    <img class="flex-image showcase-image" src="{{ block.settings.image | image_url: height: 500, width: 500}}" alt="">
-                    {% else %}
-                        {{ 'product-6' | placeholder_svg_tag: 'flex-image' }}
+                    <h1 class="showcase-paragraph-title">Showcase Title</h1>
                 {% endif %}
-                
+
+                {% if block.settings.image_description != blank %}
+                    <p class="showcase-paragraph-info">{{ block.settings.image_description }}</p>
+                {% else %}
+                    <p class="showcase-paragraph-info">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tincidunt ante
+                                                                                      sit amet urna venenatis
+                                                                                      accumsan.
+                                                                                      Nulla nec dui justo. Phasellus at volutpat nibh. Pellentesque mattis tortor in ante sodales.
+                    </p>
+                {% endif %}
             </div>
-         {% endfor %}
+            <div class="showcase-image">
+                {% if block.settings.image != blank %}
+                    <img src="{{ block.settings.image | image_url: height: 370, width: 350}}" alt="">
+                {% else %}
+                    {{ 'product-6' | placeholder_svg_tag: 'flex-image' }}
+                {% endif %}
+            </div>
+        </div>
     </div>
-</div>
+{% endfor %}
 
 {% schema %}
 {
   "name": "Show Case",
-  "class": "showcase-section",
   "presets": [
     {
       "category": "Info Section",
