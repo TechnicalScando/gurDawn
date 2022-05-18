@@ -21,7 +21,7 @@
             </div>
             <div class="showcase-image">
                 {% if block.settings.image != blank %}
-                    <img src="{{ block.settings.image | image_url: height: 370, width: 350}}" alt="">
+                    <img class="flex-image" src="{{ block.settings.image | image_url: height: 370, width: 350}}" alt="">
                 {% else %}
                     {{ 'product-6' | placeholder_svg_tag: 'flex-image' }}
                 {% endif %}

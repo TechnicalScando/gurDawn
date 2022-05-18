@@ -1,28 +1,25 @@
-<h1 class="question-title">Q&A</h1>
-<div class="question-container">
-    {% for block in section.blocks %}
-        <div class="question-info">
-            {% if block.settings.question != blank %}
-                <h4 class="question">{{ block.settings.question }}</h4>
-            {% else %}
-                <h4 class="question">What kind of trees are there in the world?</h4>
-            {% endif %}
-
-            {% if block.settings.answer != blank %}
-                <p class="answer">{{ block.settings.answer }}</p>
+<div class="question">
+    <h1 class="question-title">Q&A</h1>
+    <div class="question-container">
+        {% for block in section.blocks %}
+            <div class="info-box">
+                {% if block.settings.question != blank %}
+                    <h4 class="subtitle">{{ block.settings.question }}</h4>
+                {% else %}
+                    <h4 class="subtitle">What kind of trees are there in the world?</h4>
+                {% endif %}
+                {% if block.settings.answer != blank %}
+                    <p class="paragraph">{{ block.settings.answer }}</p>
 
                 {% else %}
-                    <p class="answer">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-                                        Pellentesque fringilla metus ut tellus ultricies egestas. Quisque quis ullamcorper tellus. 
-                                        Maecenas vel nisi consequat, consequat tellus id, dictum dui. Ut id blandit dolor. 
-                                        Cras consequat est non enim cursus, vel laoreet.</p>
-            {% endif %}
-
-
-        </div>
-    {% endfor %}
-
-
+                    <p class="paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                                                Pellentesque fringilla metus ut tellus ultricies egestas. Quisque quis ullamcorper tellus. 
+                                                                Maecenas vel nisi consequat, consequat tellus id, dictum dui. Ut id blandit dolor. 
+                                                                Cras consequat est non enim cursus, vel laoreet.</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 </div>
 
 {% schema %}

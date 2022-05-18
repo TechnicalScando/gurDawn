@@ -1,26 +1,17 @@
-<div class="image-menu-container">
+<div class="button-bar">
     {% for block in section.blocks %}
-      
-        <div class="image_item">
+        <div class="bar-btn">
           {% if block.settings.title != blank %}
-            <h4 class="image-menu-title">{{ block.settings.title }}</h4>
+            <h4 class="bar-btn-title">{{ block.settings.title }}</h4>
             {% else %}
-             <h4 class="image-menu-title">Spruce</h4> 
+             <h4 class="bar-btn-title">Variant</h4> 
           {% endif %}
-
-          {% if block.settings.description != blank%}
-            <p class="image-menu-description">{{ block.settings.description }}</p>
-            {% else %}
-             <p class="image-menu-description">A very small description</p> 
+ 
+          {% if block.settings.image != blank %}
+              <img class="menu-image" src="{{ block.settings.image | image_url: width: 450, height: 450, crop: center }}" alt="">
+          {% else %}
+              {{ 'product-1' | placeholder_svg_tag: 'menu-image' }}
           {% endif %}
-          
-          
-            <a href="{{ linklists.main-menu.links[0] }}">
-                {% if block.settings.image != blank %}
-                    <img class="menu-image" src="{{ block.settings.image | image_url: width: 450, height: 450, crop: center }}" alt="">
-                {% else %}
-                    {{ 'product-1' | placeholder_svg_tag: 'menu-image' }}
-                {% endif %}
             </a>
         </div>
     {% endfor %}
