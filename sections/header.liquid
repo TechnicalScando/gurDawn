@@ -1,10 +1,8 @@
-<div class="header">
-    <div class="header-container">
-        <div class="dropdown">
+<div class="header-container">
+    <div class="header">
+        <div class="header-drop-down">
             
-            <button class="dropbtn">
-              <img src="{{ section.settings.button_image | image_url: width: 25}}" alt="" class="dropdown-image">
-            </button>
+            <input type="image" src="{{ section.settings.button_image | image_url: width: 18 }}" class="header-drop-down">
             <div class="dropdown-content">
                 {% for link in linklists.main-menu.links %}
                     <a href="{{ link.url }}">{{ link.title }}</a>
@@ -14,7 +12,11 @@
             
             
         <img loading="lazy" class="header-logo" src="{{ section.settings.logo | image_url: width: 250 }}">
-        <a href="{{ routes.cart_url }}">cart</a>
+        
+
+        <form action="{{ routes.cart_url }}">
+          <input type="image" src="{{ section.settings.cart_image | image_url: width: 22}}" class="header-cart">
+        </form>
     </div>
 
 </div>
@@ -33,6 +35,11 @@
       "type": "image_picker",
       "id": "button_image",
       "label": "Button Image"
+     },
+     {
+      "type": "image_picker",
+      "id": "cart_image",
+      "label": "Cart Image"
      }
   ]
 }
