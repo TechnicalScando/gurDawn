@@ -1,29 +1,49 @@
 {% assign current_variant = product.selected_or_first_available_variant %}
 {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-<img src="{{ featured_image | image_url }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg">
-{% for image in product.images %}
-  <a href="{{ image.src | image_url }}">
-    <img src="{{ image.src | image_url: width: 500, height: 500 }}" alt="{{ image.alt | escape }}">
-  </a>
-{% endfor %}
-<h1>{{ product.title }}</h1>
-<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm">
-  <select name="id" id="productSelect">
-    {% for variant in product.variants %}
-      {% if variant.available %}
-        <option value="{{ variant.id }}">
-          {{ variant.title }} - {{ variant.price | money_with_currency }}
-        </option>
-      {% else %}
-        <option disabled="disabled">
-          {{ variant.title }} - sold out
-        </option>
-      {% endif %}
-    {% endfor %}
-  </select>
-  {{ current_variant.price | money }}
-  <label for="Quantity">quantity</label>
-  <input type="number" id="Quantity" name="quantity" value="1" min="1">
-  <button type="submit" name="add" id="AddToCart">Add to cart</button>
-</form>
-<div>{{ product.description }}</div>
+<img src="{{ featured_image | image_url: width: 376, height: 331 }}" alt="{{ featured_image.alt | escape }}" class="product-main-photo">
+<div class="product-photos-container">
+    <div class="product-photo-bar">
+        {% for image in product.images %}
+            <a href="{{ image.src | image_url }}">
+                <img class="product-photo" src="{{ image.src | image_url: width: 376, height: 331 }}" alt="{{ image.alt | escape }}">
+            </a>
+        {% endfor %}
+    </div>
+</div>
+<div class="product-description-container">
+    <div class="product-description">
+        <div class="price-bar">
+            <h1 class="price-bar-title">{{ product.title }}</h1>
+            <p class="price-bar-pickup">pick up available</p>
+            <div class="price-box">
+                <p class="product-price">$60</p>
+                <p class="unit-price">$60 per unit</p>
+            </div>
+        </div>
+        <p class="product-description">{{ product.description }}</p>
+    </div>
+</div>
+<div class="product-buttons-container">
+    <div class="product-buttons">
+        <button class="product-button">Add to cart</button>
+        <button class="product-button">dynamic button</button>
+        <h3 class="product-options-title">
+            more payment options
+        </h3>
+    </div>
+</div>
+
+<div class="recommendations-container">
+  <div class="recommendations">
+    <h3 class="reccomendations-title">
+      Recommendations
+    </h3>
+    <div class="recommendation-images">
+      {% for image in product.images %}
+            <a href="{{ image.src | image_url }}">
+                <img class="product-photo" src="{{ image.src | image_url: width: 376, height: 331 }}" alt="{{ image.alt | escape }}">
+            </a>
+        {% endfor %}
+    </div>
+  </div>
+</div>
