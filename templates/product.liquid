@@ -16,8 +16,7 @@
             <h1 class="price-bar-title">{{ product.title }}</h1>
             <p class="price-bar-pickup">pick up available</p>
             <div class="price-box">
-                <p class="product-price">$60</p>
-                <p class="unit-price">$60 per unit</p>
+                <p class="product-price">{{ product.price | | money_without_trailing_zeros }}</p>
             </div>
         </div>
         <p class="product-description">{{ product.description }}</p>
@@ -26,24 +25,24 @@
 <div class="product-buttons-container">
     <div class="product-buttons">
         <button class="product-button">Add to cart</button>
-        <button class="product-button">dynamic button</button>
-        <h3 class="product-options-title">
+        <button class="product-button">Dynamic button</button>
+        <a class="product-options-link">
             more payment options
-        </h3>
+        </a>
     </div>
 </div>
 
 <div class="recommendations-container">
-  <div class="recommendations">
-    <h3 class="reccomendations-title">
-      Recommendations
-    </h3>
-    <div class="recommendation-images">
-      {% for image in product.images %}
-            <a href="{{ image.src | image_url }}">
-                <img class="product-photo" src="{{ image.src | image_url: width: 376, height: 331 }}" alt="{{ image.alt | escape }}">
-            </a>
-        {% endfor %}
+    <div class="recommendations">
+        <h3 class="reccomendations-title">
+            Recommendations
+        </h3>
+        <div class="recommendation-images">
+            {% for image in product.images %}
+                <a href="{{ image.src | image_url }}">
+                    <img class="product-photo" src="{{ image.src | image_url: width: 376, height: 331 }}" alt="{{ image.alt | escape }}">
+                </a>
+            {% endfor %}
+        </div>
     </div>
-  </div>
 </div>
