@@ -11,8 +11,12 @@
                     <img class="collection-card-image" src="{{ product.featured_image.src | image_url }}" alt="{{ product.featured_image.alt | escape }}">
                 </a>
                 <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
+                {% if product.compare_at_price_max > product.price %}
+                    <p class="compare-at-price">{{ product.compare_at_price_max | money }}</p>
+                {% endif %}
                 {{ product.price | money }}
-                {% unless product.available %}<br><strong>sold out</strong>
+                {% unless product.available %}
+                    <br><strong>sold out</strong>
                 {% endunless %}
 
             </div>
@@ -20,7 +24,20 @@
             <p>no matches</p>
         {% endfor %}
     </div>
+    <div class="sort box">
+        <select name="sorting" id="sort_by" class="sort-form">
+          {% for option in collection.sort_options %}
+            <option value="{{ option.value }}"
+              {% if option.value == collection.sort_by %}
+                selected
+              {% endif %}
+            >{{ option.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
     {% if paginate.pages > 1 %}
         {{ paginate | default_pagination }}
     {% endif %}
+
+
 {% endpaginate %}
