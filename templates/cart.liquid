@@ -43,6 +43,17 @@
 
     <div class="cart-checkout-right">
       <p class="cart-total-price">{{ cart.total_price | money_without_trailing_zeros }}</p>
+
+  
+      {% if cart.cart_level_discount_application.size > 0 %}
+       <ul>
+         {% for discount_application in cart.cart_level_discount_applications %}
+            <li>
+              {{ discount_application.title}}-{{ discount_application.total_allocated_amount | money_without_trailing_zeros}}
+            </li>
+         {% endfor %}
+       </ul>
+      {% endif %}
       <button class="cart-checkout-button" name="checkout" type="submit">Checkout</button>
       <button class="cart-checkout-button" name="checkout" type="submit">Paypal</button>
     </div>

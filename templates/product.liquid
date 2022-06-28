@@ -16,33 +16,37 @@
             <h1 class="price-bar-title">{{ product.title }}</h1>
             <p class="price-bar-pickup">pick up available</p>
             <p class="product-price">{{ product.price | | money_without_trailing_zeros }}</p>
-            
+
         </div>
         <p class="product-description">{{ product.description }}</p>
     </div>
 </div>
 <div>
-   {% if product.first_available_variant %}
-     {% if product.selected_or_first_available_variant.store_availabilities %}
-        <h1>{{ product.selected_or_first_available_variant.store_availabilities.pick_up_time     }}</h1>
-     {% endif %}
-   {% endif %}
+    {% if product.first_available_variant %}
+        {% if product.selected_or_first_available_variant.store_availabilities %}
+            <h1>{{ product.selected_or_first_available_variant.store_availabilities.pick_up_time }}</h1>
+        {% endif %}
+    {% endif %}
 </div>
 
 <div class="product-buttons-container">
     <div class="product-buttons">
         {% form 'product', product, id:"AddToCartForm" %}
-        <select id="product-select" name="id">
-            {% for variant in product.variants %}
-              <option value="{{ variant.id }}"
-                {% if variant == product.selected_or_first_available_variant %}selected="selected"{% endif %}
-              >
-                {{ variant.title }} - {{ variant.price | money }}
-              </option>
-            {% endfor %}
-          </select>
+            <select id="product-select" name="id">
+                {% for variant in product.variants %}
+                    <option value="{{ variant.id }}" {% if variant==product.selected_or_first_available_variant %} selected="selected" {% endif %}>
+                        {{ variant.title }}
+                        -
+                        {{ variant.price | money }}
+                    </option>
+                {% endfor %}
+            </select>
             <button class="product-button" id="addToCart" name="add" type="submit">Add to cart</button>
-            <button class="product-button">Dynamic button</button>
+            {% if additional_checkout_buttons %}
+                <div class="additional-checkout-buttons">
+                    {{ content_for_additional_checkout_buttons }}
+                </div>
+            {% endif %}
             <a class="product-options-link">
                 more payment options
             </a>
@@ -67,4 +71,3 @@
         </div>
     </div>
 </div>
-

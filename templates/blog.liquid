@@ -1,22 +1,24 @@
 {% paginate blog.articles by 5 %}
 
-<h1>{{ blog.title }}</h1>
+<h1 class="blog-title">{{ blog.title }}</h1>
 {% for article in blog.articles %}
-  <div>
-    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
-    {{ article.author }} @ {{ article.created_at }}
-    <div>
+<div class="blog-line-item">
+  <img class="blog-line-image" src="{{ article.image | image_url }}" alt="">
+  <div class="blog-right">
+    <h2 class="blog-line-title"><a href="{{ article.url }}">{{ article.title }}</a></h2>
+    <div class="blog-line-excerpt">
       {% if article.excerpt.size > 0 %}
-        {{ article.excerpt }}
+      {{ article.excerpt }}
       {% else %}
-        <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
+      <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
       {% endif %}
     </div>
   </div>
+</div>
 {% endfor %}
 
 {% if paginate.pages > 1 %}
-  {{ paginate | default_pagination }}
+{{ paginate | default_pagination }}
 {% endif %}
 
 {% endpaginate %}
